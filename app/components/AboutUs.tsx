@@ -40,19 +40,6 @@ export default function AboutUs() {
             larger financial services company and continues to help consumers
             make informed financial decisions and improve their credit standing.
           </Text>
-          <Stack direction={{ base: "column", md: "row" }} spacing={4}>
-            <Button
-              rounded={"full"}
-              bg={"blue.400"}
-              color={"white"}
-              _hover={{
-                bg: "blue.500"
-              }}
-            >
-              Create Project
-            </Button>
-            <Button rounded={"full"}>How It Works</Button>
-          </Stack>
         </Stack>
       </Flex>
       <Flex flex={1}>

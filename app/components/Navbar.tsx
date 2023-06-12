@@ -14,14 +14,21 @@ import {
   useColorModeValue,
   useBreakpointValue,
   useDisclosure,
-  VisuallyHidden
+  Avatar,
+  MenuButton,
+  Menu,
+  MenuList,
+  MenuItem,
+  MenuDivider
 } from "@chakra-ui/react";
 import {
   HamburgerIcon,
   CloseIcon,
   ChevronDownIcon,
-  ChevronRightIcon
+  ChevronRightIcon,
+  BellIcon
 } from "@chakra-ui/icons";
+
 import { Image } from "@chakra-ui/react";
 
 export default function Navbar() {
@@ -33,7 +40,7 @@ export default function Navbar() {
         id="nav-bar"
         bg={useColorModeValue("green.900", "gray.800")}
         color={useColorModeValue("white", "white")}
-        minH={"102px"}
+        minH={"70"}
         py={{ base: 2 }}
         //px={{ base: 4 }}
         borderBottom={1}
@@ -63,10 +70,10 @@ export default function Navbar() {
           justify={{ base: "center", md: "start" }}
         >
           <Button as={"a"} href="/" variant={"link"}>
-            <Image src="/Logo.png" alt="Logo" width="320px" height="fit" />
+            <Image src="/Logo.png" alt="Logo" width="250px" height="fit" />
           </Button>
 
-          <Flex
+          {/* <Flex
             id="nav-links"
             display={{ base: "none", md: "flex" }}
             //ml={10}
@@ -76,40 +83,57 @@ export default function Navbar() {
             mx={"auto"}
           >
             <DesktopNav />
-          </Flex>
+          </Flex> */}
         </Flex>
 
         <Stack
           id="signin-signup"
-          flex={{ base: 1, md: 0 }}
+          flex={{ base: 1, md: 1 }}
           justify={"flex-end"}
           direction={"row"}
           spacing={6}
         >
-          <Button
-            as={"a"}
-            fontSize={"sm"}
-            fontWeight={400}
-            color={"white"}
-            variant={"link"}
-            href={"#"}
+          <Flex
+            id="nav-links"
+            display={{ base: "none", md: "flex" }}
+            //ml={10}
+            //mr={10}
+            justify={"center"}
+            align={"center"}
+            //mx={"auto"}
           >
-            Sign In
-          </Button>
-          <Button
-            as={"a"}
-            //display={{ base: "none", md: "inline-flex" }}
-            fontSize={"sm"}
-            fontWeight={600}
-            color={"green.900"}
-            bg={"white"}
-            href={"#"}
-            _hover={{
-              bg: "green.700"
-            }}
-          >
-            Sign Up
-          </Button>
+            <DesktopNav />
+          </Flex>
+
+          <IconButton
+            icon={<BellIcon />}
+            aria-label="Notifications"
+            variant="ghost"
+            color="white"
+            mr={4}
+          />
+          <Menu>
+            <MenuButton
+              as={Button}
+              rounded={"full"}
+              variant={"link"}
+              cursor={"pointer"}
+              minW={0}
+            >
+              <Avatar
+                size={"sm"}
+                src={
+                  "https://images.unsplash.com/photo-1493666438817-866a91353ca9?ixlib=rb-0.3.5&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&s=b616b2c5b373a80ffc9636ba24f7a4a9"
+                }
+              />
+            </MenuButton>
+            <MenuList color={"green.900"}>
+              <MenuItem>Link 1</MenuItem>
+              <MenuItem>Link 2</MenuItem>
+              <MenuDivider />
+              <MenuItem>Link 3</MenuItem>
+            </MenuList>
+          </Menu>
         </Stack>
       </Flex>
 
@@ -278,23 +302,7 @@ interface NavItem {
 
 const NAV_ITEMS: Array<NavItem> = [
   {
-    label: "Home",
-    href: "#hero"
-  },
-  {
-    label: "Credit Health",
-    href: "#features"
-  },
-  {
-    label: "About Us",
-    href: "#"
-  },
-  {
-    label: "Contact Us",
-    href: "#contact"
-  },
-  {
-    label: "Sign Up",
-    href: "#"
+    label: "Help & Support",
+    href: "#support"
   }
 ];
